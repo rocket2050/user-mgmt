@@ -1,0 +1,20 @@
+
+- name: Check if Keypair Exists
+  stat:
+    path: /tmp/keys/{{ org.employees[item.name].name }}
+  with_items:
+    - "{{ org.projects[PROJECT].environments[ENV].members }}"
+  register: result
+  tags:
+    - user_mgmt
+
+- name: Ensure SSH key is generated
+  command: ssh-keygen -t rsa -f /tmp/keys/{{ org.employees[item.name].name }} -C {{ org.employees[item.name].name }} -q -N ""
+  args:
+    creates: /tmp/keys/{{ org.employees[item.name].name }}
+  with_items:
+    - "{{ org.projects[PROJECT].environments[ENV].members }}"
+  check_mode: no
+#  when: result.stat.exists == False
+  tags:
+    - user_mgmt

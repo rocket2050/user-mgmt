@@ -1,0 +1,93 @@
+---
+# vars file for usermgmt
+org:
+  employees:
+    ubackup:
+      name: "ubackup"
+      key: "add ubackup .pub key here"
+      state: "present"
+
+    sajal:
+      name: "sajal"
+      key: "add sajal .pub key here"
+      state: "present"
+    user2:
+      name: "user2"
+      key: "add user2 .pub key here"
+      state: "present"
+    user3:
+      name: "user3"
+      key: "add user3 .pub key here"
+      state: "present"
+    
+  projects:
+    myproject1:
+      environments:
+        dev:
+          members:
+            - name: "ubackup"
+              group: devops
+            - name: "sajal"
+              group: devops 
+            - name: "user2"
+              group: devlead 
+            - name: "user3"
+              group: dev 
+        qa:
+          members:
+            - name: "ubackup"
+              group: devops
+            - name: "sajal"
+              group: devops 
+            - name: "user2"
+              group: devlead 
+            - name: "user3"
+              group: dev 
+        prod:
+          members:
+            - name: "ubackup"
+              group: devops
+            - name: "sajal"
+              group: devops 
+            - name: "user2"
+              group: devlead 
+            - name: "user3"
+              group: dev 
+
+    myproject2:
+      environments:
+        dev:
+          members:
+            - name: "ubackup"
+              group: devops
+            - name: "sajal"
+              group: devops 
+            - name: "user2"
+              group: devlead 
+            - name: "user3"
+              group: dev 
+        qa:
+          members:
+            - name: "ubackup"
+              group: devops
+            - name: "sajal"
+              group: devops 
+            - name: "user2"
+              group: devlead 
+            - name: "user3"
+              group: dev 
+        prod:
+          members:
+            - name: "ubackup"
+              group: devops
+            - name: "sajal"
+              group: devops 
+            - name: "user2"
+              group: devlead 
+            - name: "user3"
+              group: dev 
+
+usergroups:
+  - name: "devops"
+  - name: "devlead"
+  - name: "dev"
