@@ -36,7 +36,7 @@
     shell: /bin/bash
     groups: "{{ item.group }}"
   with_items:
-    - "{{ org.projects[PROJECT].environments[ENV].members }}"
+    - "{{ org.environments[ENV].members }}"
   become: yes
   tags:
     - user_mgmt
@@ -44,9 +44,9 @@
 - name: Add keys
   authorized_key:
     user: "{{ org.employees[item.name].name }}"
-    key: '{{ org.employees[item.name].key }}'
+    key: "{{ lookup('file', '{{ org.employees[item.name].name }}.pub') }}"
   with_items:
-    - "{{ org.projects[PROJECT].environments[ENV].members }}"
+    - "{{ org.environments[ENV].members }}"
   when: '"{{ org.employees[item.name].state }}" == "present"'
   become: yes
   tags:
@@ -57,7 +57,7 @@
     state: absent
     path: "/home/{{ item.name }}/"
   with_items:
-    - "{{ org.projects[PROJECT].environments[ENV].members }}"
+    - "{{ org.environments[ENV].members }}"
   when: '"{{ org.employees[item.name].state }}" == "absent"'
   become: yes
   tags:
