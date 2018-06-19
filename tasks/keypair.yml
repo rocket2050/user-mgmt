@@ -9,9 +9,9 @@
     - key_mgmt
 
 - name: Ensure SSH key is generated
-  command: ssh-keygen -t rsa -f /etc/ansible/roles/usermgmt/files/{{ org.employees[item.name].name }} -C {{ org.employees[item.name].name }} -q -N ""
+  command: ssh-keygen -t rsa -f /etc/ansible/roles/user-mgmt/files/{{ org.employees[item.name].name }} -C {{ org.employees[item.name].name }} -q -N ""
   args:
-    creates: /etc/ansible/roles/usermgmt/files/{{ org.employees[item.name].name }}
+    creates: /etc/ansible/roles/user-mgmt/files/{{ org.employees[item.name].name }}
   with_items:
     - "{{ org.environments[ENV].members }}"
   check_mode: no

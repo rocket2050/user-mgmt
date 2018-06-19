@@ -1,8 +1,5 @@
-# USAGE (key_pair) : ansible-playbook users.yml -e "ENV=dev TARGET=localhost" --tags "key_mgmt"
-# USAGE (user) : ansible-playbook users.yml -e "ENV=dev TARGET=node1" --tags "user_mgmt"
-
 ---
 - hosts: '{{ TARGET }}'
 
   roles:
-  - usermgmt
+  - user-mgmt

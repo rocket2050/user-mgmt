@@ -2,10 +2,6 @@
 # vars file for usermgmt
 org:
   employees:
-    ubackup:
-      name: "ubackup"
-      key: "add ubackup .pub key here"
-      state: "present"
     user1:
       name: "user1"
       state: "present"
@@ -15,35 +11,38 @@ org:
     user3:
       name: "user3"
       state: "present"
+    user4:
+      name: "user4"
+      state: "present"
   
   environments:
     dev:
       members:
-        - name: "ubackup"
-          group: devops
         - name: "user1"
-          group: devops 
+          group: devops
         - name: "user2"
-          group: devlead 
+          group: devops 
         - name: "user3"
+          group: devlead 
+        - name: "user4"
           group: dev 
     qa:
       members:
-        - name: "ubackup"
-          group: devops
         - name: "user1"
-          group: devops 
+          group: devops
         - name: "user2"
-          group: devlead 
+          group: devops 
         - name: "user3"
+          group: devlead 
+        - name: "user4"
           group: dev 
     prod:
       members:
-        - name: "ubackup"
-          group: devops
         - name: "user1"
-          group: devops 
+          group: devops
         - name: "user2"
+          group: devops 
+        - name: "user3"
           group: devlead 
 
 usergroups:
