@@ -1,3 +1,6 @@
+# This role will create users and groups then add the .pub keys to users' authorized keys.
+
+
 - name: Allow 'devops' group to have passwordless sudo
   lineinfile:
     dest: /etc/sudoers
