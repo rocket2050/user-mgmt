@@ -29,5 +29,6 @@ Playbook Execution
 
 Execute the playbook using the below command with required vars (playbook name: users.yml):
 
- USAGE (To generate key_pair) : ansible-playbook users.yml -e "ENV=dev TARGET=localhost" --tags "key_mgmt"
- USAGE (To create users and groups) : ansible-playbook users.yml -e "ENV=dev TARGET=node1" --tags "user_mgmt"
+ ``` USAGE (To generate key_pair) : ansible-playbook users.yml -e "ENV=dev TARGET=localhost" --tags "key_mgmt" 
+ 
+ USAGE (To create users and groups) : ansible-playbook users.yml -e "ENV=dev TARGET=node1" --tags "user_mgmt" ```
