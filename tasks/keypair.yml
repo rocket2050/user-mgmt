@@ -1,7 +1,8 @@
+# this will generate key_pair in localhost ansible-server 
 
 - name: Check if Keypair Exists
   stat:
-    path: /etc/ansible/roles/usermgmt/files/{{ org.employees[item.name].name }}
+    path: /etc/ansible/roles/user-mgmt/files/{{ org.employees[item.name].name }}
   with_items:
     - "{{ org.environments[ENV].members }}"
   register: result
